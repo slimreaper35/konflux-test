@@ -1,0 +1,54 @@
+GET http://127.0.0.1:8080/events
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8080/events/1
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8080/events/x
+Accept: application/json
+
+###
+
+POST http://127.0.0.1:8080/events
+Content-Type: application/json
+Authorization:
+
+{
+  "name": "event",
+  "description": "description",
+  "location": "location",
+  "datetime": "2024-01-01T15:00:00Z"
+}
+
+###
+
+PUT http://127.0.0.1:8080/events/1
+Content-Type: application/json
+Authorization:
+
+{
+  "name": "event",
+  "description": "description",
+  "location": "location",
+  "datetime": "2024-01-01T15:00:00Z"
+}
+
+###
+
+PUT http://127.0.0.1:8080/events/1
+Content-Type: application/json
+Authorization:
+
+{
+  "name": "tmp"
+}
+
+###
+
+DELETE http://127.0.0.1:8080/events/1
+Accept: application/json
+Authorization:
