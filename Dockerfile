@@ -1,4 +1,8 @@
-FROM golang:1.22
+FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
+
+USER root
+
+RUN microdnf install -y golang-bin
 
 WORKDIR /app
 
