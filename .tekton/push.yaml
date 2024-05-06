@@ -6,9 +6,8 @@ metadata:
     build.appstudio.redhat.com/commit_sha: "{{revision}}"
     build.appstudio.redhat.com/target_branch: "{{target_branch}}"
     pipelinesascode.tekton.dev/max-keep-runs: "3"
-    pipelinesascode.tekton.dev/on-cel-expression:
-      event == "push" && target_branch
-      == "main"
+    pipelinesascode.tekton.dev/on-event: "[push]"
+    pipelinesascode.tekton.dev/on-target-branch: "[main]"
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: konflux-test
@@ -96,11 +95,11 @@ spec:
         description: Skip checks against built image
         name: skip-checks
         type: string
-      - default: "false"
+      - default: "true"
         description: Execute the build with network isolation
         name: hermetic
         type: string
-      - default: ""
+      - default: "gomod"
         description: Build dependencies to be prefetched by Cachi2
         name: prefetch-input
         type: string

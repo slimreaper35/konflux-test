@@ -1,8 +1,6 @@
-FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
+FROM registry.access.redhat.com/ubi9/go-toolset:1.21
 
 USER root
-
-RUN microdnf install -y golang-bin
 
 WORKDIR /app
 
