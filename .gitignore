@@ -4,7 +4,6 @@
 # But not these files...
 !/.gitignore
 !/.tekton/*
-!/licenses/*
 
 !*.go
 !go.sum
@@ -13,6 +12,7 @@
 !README.md
 
 !Dockerfile
+!LICENSE
 
 !*.http
 

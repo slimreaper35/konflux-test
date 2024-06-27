@@ -8,6 +8,10 @@ ARG USER_GID=$USER_UID
 
 RUN groupadd --gid $USER_GID $USERNAME && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
 
+WORKDIR /licenses
+
+COPY LICENSE .
+
 WORKDIR /app
 
 COPY go.mod .
