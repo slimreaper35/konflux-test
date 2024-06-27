@@ -4,13 +4,13 @@
 # But not these files...
 !/.gitignore
 !/.tekton/*
+!/licenses/*
 
 !*.go
 !go.sum
 !go.mod
 
 !README.md
-!LICENSE
 
 !Dockerfile
 
@@ -18,4 +18,3 @@
 
 # ...even if they are in subdirectories
 !*/
-
