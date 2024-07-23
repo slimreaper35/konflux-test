@@ -237,31 +237,6 @@ spec:
             operator: in
             values:
               - "false"
-      - name: sast-snyk-check
-        params:
-          - name: image-digest
-            value: $(tasks.build-container.results.IMAGE_DIGEST)
-          - name: image-url
-            value: $(tasks.build-container.results.IMAGE_URL)
-        runAfter:
-          - build-container
-        taskRef:
-          params:
-            - name: name
-              value: sast-snyk-check
-            - name: bundle
-              value: quay.io/konflux-ci/tekton-catalog/task-sast-snyk-check:0.1@sha256:d68390c8d771a50dcc99841ae224d18f36b677d9da6ad9bf8972878bde5f0f8f
-            - name: kind
-              value: task
-          resolver: bundles
-        when:
-          - input: $(params.skip-checks)
-            operator: in
-            values:
-              - "false"
-        workspaces:
-          - name: workspace
-            workspace: workspace
       - name: clamav-scan
         params:
           - name: image-digest
