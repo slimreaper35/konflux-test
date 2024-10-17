@@ -101,7 +101,7 @@ spec:
             - name: name
               value: git-clone
             - name: bundle
-              value: quay.io/redhat-appstudio-tekton-catalog/task-git-clone:0.1@sha256:9e6c4db5a666ea0e1e747e03d63f46e5617a6b9852c26871f9d50891d778dfa2
+              value: quay.io/redhat-appstudio-tekton-catalog/task-git-clone:0.1@sha256:68a87cafeb43367160497d91a1a66bceef7acc179e809e8eb3996c1deb096042
             - name: kind
               value: task
           resolver: bundles
@@ -161,7 +161,7 @@ spec:
             - name: name
               value: buildah
             - name: bundle
-              value: quay.io/redhat-appstudio-tekton-catalog/task-buildah:0.2@sha256:19d4122262237c546c76cb862473874a43c36b3d374ffc8524f249e947557666
+              value: quay.io/redhat-appstudio-tekton-catalog/task-buildah:0.2@sha256:bea650d780f4ca447239a90678251f22eae42004c45bf068fc456d53cec5bb2d
             - name: kind
               value: task
           resolver: bundles
@@ -208,7 +208,7 @@ spec:
             - name: name
               value: clair-scan
             - name: bundle
-              value: quay.io/konflux-ci/tekton-catalog/task-clair-scan:0.2@sha256:9f4ddafd599e06b319cece5a4b8ac36b9e7ec46bea378bc6c6af735d3f7f8060
+              value: quay.io/konflux-ci/tekton-catalog/task-clair-scan:0.2@sha256:28fee4bf5da87f2388c973d9336086749cad8436003f9a514e22ac99735e056b
             - name: kind
               value: task
           resolver: bundles
@@ -250,7 +250,7 @@ spec:
             - name: name
               value: clamav-scan
             - name: bundle
-              value: quay.io/konflux-ci/tekton-catalog/task-clamav-scan:0.1@sha256:37a2dcca17429a0e06f36a77c362d2f9b3cb4d0ad9c20393167bd740650a4657
+              value: quay.io/konflux-ci/tekton-catalog/task-clamav-scan:0.1@sha256:1e29eebe916b81b7100138d62db0e03e22d03657274d37041c59cbaca5fdbf7d
             - name: kind
               value: task
           resolver: bundles
@@ -292,7 +292,7 @@ spec:
             - name: name
               value: apply-tags
             - name: bundle
-              value: quay.io/konflux-ci/tekton-catalog/task-apply-tags:0.1@sha256:e6beb161ed59d7be26317da03e172137b31b26648d3e139558e9a457bc56caff
+              value: quay.io/konflux-ci/tekton-catalog/task-apply-tags:0.1@sha256:f485e250fb060060892b633c495a3d7e38de1ec105ae1be48608b0401530ab2c
             - name: kind
               value: task
           resolver: bundles
