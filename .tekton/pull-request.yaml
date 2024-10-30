@@ -97,6 +97,7 @@ spec:
             - name: kind
               value: task
           resolver: bundles
+
       - name: clone-repository
         params:
           - name: url
@@ -122,6 +123,7 @@ spec:
         workspaces:
           - name: output
             workspace: workspace
+
       - name: prefetch-dependencies
         params:
           - name: input
@@ -145,6 +147,7 @@ spec:
         workspaces:
           - name: source
             workspace: workspace
+
       - name: build-container
         params:
           - name: IMAGE
@@ -182,6 +185,7 @@ spec:
         workspaces:
           - name: source
             workspace: workspace
+
       - name: build-image-index
         params:
           - name: IMAGE
@@ -211,6 +215,7 @@ spec:
             operator: in
             values:
               - "true"
+
       - name: build-source-image
         params:
           - name: BINARY_IMAGE
@@ -238,6 +243,7 @@ spec:
         workspaces:
           - name: workspace
             workspace: workspace
+
       - name: deprecated-base-image-check
         params:
           - name: IMAGE_URL
@@ -260,6 +266,7 @@ spec:
             operator: in
             values:
               - "false"
+
       - name: clair-scan
         params:
           - name: image-digest
@@ -282,6 +289,7 @@ spec:
             operator: in
             values:
               - "false"
+
       - name: ecosystem-cert-preflight-checks
         params:
           - name: image-url
@@ -302,6 +310,33 @@ spec:
             operator: in
             values:
               - "false"
+
+      - name: sast-snyk-check
+        params:
+          - name: image-digest
+            value: $(tasks.build-image-index.results.IMAGE_DIGEST)
+          - name: image-url
+            value: $(tasks.build-image-index.results.IMAGE_URL)
+        runAfter:
+          - build-image-index
+        taskRef:
+          params:
+            - name: name
+              value: sast-snyk-check
+            - name: bundle
+              value: quay.io/konflux-ci/tekton-catalog/task-sast-snyk-check:0.2@sha256:c1ea706405f9ae146e31baef4abfea49b1e855a75bfc44c33eb0eb29516831b3
+            - name: kind
+              value: task
+          resolver: bundles
+        when:
+          - input: $(params.skip-checks)
+            operator: in
+            values:
+              - "false"
+        workspaces:
+          - name: workspace
+            workspace: workspace
+
       - name: clamav-scan
         params:
           - name: image-digest
@@ -324,6 +359,7 @@ spec:
             operator: in
             values:
               - "false"
+
       - name: apply-tags
         params:
           - name: IMAGE
@@ -339,6 +375,7 @@ spec:
             - name: kind
               value: task
           resolver: bundles
+
       - name: push-dockerfile
         params:
           - name: IMAGE
@@ -363,6 +400,7 @@ spec:
         workspaces:
           - name: workspace
             workspace: workspace
+
       - name: rpms-signature-scan
         params:
           - name: image-url
@@ -400,6 +438,7 @@ spec:
             - name: kind
               value: task
           resolver: bundles
+
       - name: show-summary
         params:
           - name: pipelinerun-name
