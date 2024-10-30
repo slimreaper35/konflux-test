@@ -1,5 +1,13 @@
 FROM registry.access.redhat.com/ubi9/go-toolset@sha256:97e30a01caeece72ee967013e7c7af777ea4ee93840681ddcfe38a87eb4c084a
 
+LABEL name="my-name"
+LABEL summary="my-summary"
+LABEL description="my-description"
+LABEL com.redhat.component="my-redhat-component"
+LABEL io.openshift.tags="my-openshift-tags"
+LABEL io.k8s.display-name="my-k8s-display-name"
+LABEL io.k8s.description="my-k8s-description"
+
 USER root
 
 ARG USERNAME=nonroot
