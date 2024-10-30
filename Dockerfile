@@ -8,6 +8,9 @@ LABEL io.openshift.tags="my-openshift-tags"
 LABEL io.k8s.display-name="my-k8s-display-name"
 LABEL io.k8s.description="my-k8s-description"
 
+ARG REVISION
+LABEL commit_sha=$REVISION
+
 USER root
 
 ARG USERNAME=nonroot
