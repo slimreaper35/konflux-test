@@ -11,10 +11,15 @@ import (
 
 func main() {
 	database.InitDatabase()
+	gin.SetMode(gin.ReleaseMode)
 
 	var server = gin.Default()
 	registerRoutes(server)
-	server.Run("127.0.0.1:8080")
+
+	var addr = "127.0.0.1:8080"
+	var msg = "Server is running on http://" + addr
+	println(msg)
+	server.Run(addr)
 }
 
 func registerRoutes(server *gin.Engine) {
