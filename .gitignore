@@ -10,9 +10,9 @@
 !go.mod
 
 !README.md
+
 !Dockerfile
 !LICENSE
-!renovate.json
 
 !*.http
 
