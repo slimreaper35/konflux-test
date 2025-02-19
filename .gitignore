@@ -9,8 +9,8 @@
 !go.sum
 !go.mod
 
+!renovate.json
 !README.md
-
 !Dockerfile
 !LICENSE
 
