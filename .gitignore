@@ -3,6 +3,8 @@
 
 # But not these files...
 !/.gitignore
+
+!/.s2i/bin/*
 !/.tekton/*
 
 !*.go

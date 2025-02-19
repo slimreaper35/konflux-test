@@ -1,0 +1,5 @@
+#!/bin/bash -e
+
+echo "--> Executing the run script"
+
+go run main.go
