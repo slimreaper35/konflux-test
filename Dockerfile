@@ -2,6 +2,8 @@ FROM registry.access.redhat.com/ubi9/go-toolset@sha256:703937e152d049e62f5aa8ab2
 
 USER root
 
+LABEL maintainer="Michal Šoltis <msoltis@redhat.com>"
+
 WORKDIR /licenses
 
 COPY LICENSE .
@@ -16,16 +18,15 @@ COPY . .
 
 RUN go build
 
-LABEL name="my-name" \
-      summary="my-summary" \
-      description="my-description" \
-      com.redhat.component="my-redhat-component" \
-      io.openshift.tags="my-openshift-tags" \
-      io.k8s.display-name="my-k8s-display-name" \
-      io.k8s.description="my-k8s-description"
+LABEL io.k8s.description="description" \
+      io.k8s.display-name="display-name" \
+      io.openshift.expose-services="8080:http" \
+      io.openshift.tags="tags"
 
 EXPOSE 8080
 
+RUN chown -R 1001:1001 /app
+
 USER 1001
 
-ENTRYPOINT ["./konflux-test"]
+CMD ["./konflux-test"]
