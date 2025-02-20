@@ -16,6 +16,8 @@ func main() {
 	var server = gin.Default()
 	registerRoutes(server)
 
+	println("Server is running on port 8080")
+
 	var addr = "0.0.0.0:8080"
 	server.Run(addr)
 }
