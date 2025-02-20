@@ -23,7 +23,7 @@ func main() {
 func registerRoutes(server *gin.Engine) {
 	// Root
 	server.GET("/", func(context *gin.Context) {
-		context.JSON(http.StatusOK, gin.H{"message": "Welcome to REST API built in Konflux!"})
+		context.String(http.StatusOK, "Welcome to REST API built in Konflux")
 	})
 
 	// Events

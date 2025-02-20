@@ -1,5 +1,0 @@
-#!/bin/bash -e
-
-echo "--> Executing the assemble script"
-
-go mod download

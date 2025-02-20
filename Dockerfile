@@ -25,12 +25,11 @@ LABEL name="name" \
       io.k8s.description="description" \
       io.k8s.display-name="display-name" \
       io.openshift.expose-services="8080:http" \
-      io.openshift.tags="tags" \
-      io.openshift.s2i.scripts-url="image:///app/.s2i/bin"
+      io.openshift.tags="tags"
 
 EXPOSE 8080
 
-RUN chown -R 1001:1001 /app
+RUN chown -R 1001:0 /app
 
 USER 1001
 
