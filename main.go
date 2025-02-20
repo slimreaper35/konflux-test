@@ -16,13 +16,16 @@ func main() {
 	var server = gin.Default()
 	registerRoutes(server)
 
-	var addr = "127.0.0.1:8080"
-	var msg = "Server is running on http://" + addr
-	println(msg)
+	var addr = "0.0.0.0:8080"
 	server.Run(addr)
 }
 
 func registerRoutes(server *gin.Engine) {
+	// Root
+	server.GET("/", func(context *gin.Context) {
+		context.JSON(http.StatusOK, gin.H{"message": "Welcome to REST API built in Konflux!"})
+	})
+
 	// Events
 	server.GET("/events", routes.GetAllEventsHandler)
 	server.GET("/events/:id", routes.GetOneEventHandler)
