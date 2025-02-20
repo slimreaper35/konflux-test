@@ -1,0 +1,7 @@
+#!/bin/bash -e
+
+echo "Hello from run script!"
+
+cd /tmp/src
+
+go run main.go
