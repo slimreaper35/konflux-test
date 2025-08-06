@@ -1,0 +1,20 @@
+# Ignore everything
+*
+
+# But not these files...
+!/.gitignore
+
+!/.tekton/*
+
+!*.go
+!go.sum
+!go.mod
+
+!README.md
+!Dockerfile
+!LICENSE
+
+!*.http
+
+# ...even if they are in subdirectories
+!*/
