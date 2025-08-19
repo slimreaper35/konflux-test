@@ -5,15 +5,25 @@
     ],
     "packageRules": [
         {
-            "matchPackagePatterns": [
+            "groupName": "Dockerfile",
+            "matchManagers": [
+                "dockerfile"
+            ],
+            "schedule": "monthly"
+        },
+        {
+            "groupName": "Go",
+            "matchManagers": [
                 "gomod"
             ],
-            "matchUpdateTypes": [
-                "*"
+            "schedule": "monthly"
+        },
+        {
+            "groupName": "Tekton",
+            "matchFileNames": [
+                ".tekton/**"
             ],
-            "schedule": [
-                "* * 1 * *"
-            ]
+            "schedule": "monthly"
         }
     ]
 }
