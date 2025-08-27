@@ -1,0 +1,13 @@
+*
+
+!LICENSE
+
+!database/
+!models/
+!routes/
+!utils/
+
+!go.mod
+!go.sum
+
+!main.go

@@ -1,0 +1,29 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:recommended"
+    ],
+    "packageRules": [
+        {
+            "groupName": "Dockerfile",
+            "matchManagers": [
+                "dockerfile"
+            ],
+            "schedule": "monthly"
+        },
+        {
+            "groupName": "Go",
+            "matchManagers": [
+                "gomod"
+            ],
+            "schedule": "monthly"
+        },
+        {
+            "groupName": "Tekton",
+            "matchFileNames": [
+                ".tekton/**"
+            ],
+            "schedule": "monthly"
+        }
+    ]
+}
