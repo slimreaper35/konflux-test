@@ -6,6 +6,7 @@
 !/.containerignore
 
 !/.tekton/*
+!/vendor/*
 
 !*.go
 !go.sum
