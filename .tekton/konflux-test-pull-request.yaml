@@ -182,6 +182,8 @@ spec:
         params:
           - name: input
             value: $(params.prefetch-input)
+          - name: mode
+            value: permissive
         runAfter:
           - clone-repository
         taskRef:
@@ -189,7 +191,7 @@ spec:
             - name: name
               value: prefetch-dependencies
             - name: bundle
-              value: quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies:0.2@sha256:a18a33aa577ac1b8f0c9ca6cd74c4c73a30cfd48a7b959c86390bc04066d1fb1
+              value: quay.io/rh-ee-msoltis/tekton-catalog/task-prefetch-dependencies:0.3
             - name: kind
               value: task
           resolver: bundles

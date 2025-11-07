@@ -6,6 +6,7 @@
 !/.dockerignore
 
 !/.tekton/*
+!/vendor/*
 
 !*.go
 !go.sum
