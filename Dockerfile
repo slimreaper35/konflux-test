@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi10/go-toolset@sha256:182645783ad0a0af4a78d928f2d9167815d59c12cc156aa3c229cf3a49d636d9
+FROM registry.access.redhat.com/ubi10/go-toolset@sha256:4d65503c0066e26df81fbfe93203f0e7dbc23cf503ca2972fef01cdc13cd813c
 
 USER root
 
