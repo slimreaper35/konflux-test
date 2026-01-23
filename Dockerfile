@@ -12,6 +12,9 @@ WORKDIR /app
 
 COPY go.mod go.sum ./
 
+ENV GOBIN=/usr/bin
+RUN go install github.com/konflux-ci/konflux-build-cli@latest
+
 RUN go mod download
 
 COPY . .
