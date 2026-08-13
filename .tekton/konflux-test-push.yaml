@@ -25,6 +25,11 @@ spec:
     value: quay.io/redhat-user-workloads/msoltis-tenant/konflux-test:{{revision}}
   - name: dockerfile
     value: Dockerfile
+  - name: hermetic
+    value: true
+  - name: prefetch-input
+    value: gomod
+
   pipelineSpec:
     description: |
       This pipeline is ideal for building container images from a Containerfile while maintaining trust after pipeline customization.
