@@ -33,4 +33,4 @@ RUN chown -R 1001:0 /app
 
 USER 1001
 
-CMD ["./konflux-test"]
+ENTRYPOINT ["./konflux-test"]
