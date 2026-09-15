@@ -1,5 +1,9 @@
 FROM registry.access.redhat.com/ubi10/go-toolset@sha256:290ba654458e9a269b1509d10e6ebbd3c2b2456570e73e73201adb3ee54fb244
 
+ARG COLOR
+ARG DOG
+LABEL color="${COLOR}" dog="${DOG}"
+
 USER root
 
 LABEL maintainer="Michal Šoltis <msoltis@redhat.com>"
