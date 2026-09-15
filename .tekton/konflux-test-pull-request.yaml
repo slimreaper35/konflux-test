@@ -32,6 +32,10 @@ spec:
     value: true
   - name: prefetch-input
     value: gomod
+  - name: build-args-files
+    value:
+    - one.txt
+    - two.txt
 
   pipelineSpec:
     description: |
@@ -105,10 +109,10 @@ spec:
       description: Array of --build-arg values ("arg=value" strings) for buildah
       name: build-args
       type: array
-    - default: ""
+    - default: []
       description: Path to a file with build arguments for buildah, see https://www.mankier.com/1/buildah-build#--build-arg-file
-      name: build-args-file
-      type: string
+      name: build-args-files
+      type: array
     - default: "false"
       description: Whether to enable privileged mode, should be used only with remote
         VMs
@@ -228,8 +232,6 @@ spec:
       - name: BUILD_ARGS
         value:
         - $(params.build-args[*])
-      - name: BUILD_ARGS_FILE
-        value: $(params.build-args-file)
       - name: PRIVILEGED_NESTED
         value: $(params.privileged-nested)
       - name: SOURCE_URL
@@ -250,6 +252,9 @@ spec:
         value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
       - name: CACHI2_ARTIFACT
         value: $(tasks.prefetch-dependencies.results.CACHI2_ARTIFACT)
+      - name: BUILD_ARGS_FILES
+        value:
+        - $(params.build-args-files[*])
       runAfter:
       - prefetch-dependencies
       taskRef:
@@ -257,7 +262,7 @@ spec:
         - name: name
           value: buildah-oci-ta
         - name: bundle
-          value: quay.io/konflux-ci/tekton-catalog/task-buildah-oci-ta:0.12.0@sha256:cf32941c77e413818c4ef6b78c2a88d6e6ddc21729767d8f4d316cd293e4a15d
+          value: quay.io/rh-ee-msoltis/catalog:my-buildah-oci-ta
         - name: kind
           value: task
         resolver: bundles

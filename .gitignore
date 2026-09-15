@@ -1,6 +1,9 @@
 # Ignore everything
 *
 
+!one.txt
+!two.txt
+
 # But not these files...
 !/.gitignore
 !/.dockerignore
