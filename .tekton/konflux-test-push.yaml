@@ -104,10 +104,10 @@ spec:
       description: Array of --build-arg values ("arg=value" strings) for buildah
       name: build-args
       type: array
-    - default: ""
+    - default: []
       description: Path to a file with build arguments for buildah, see https://www.mankier.com/1/buildah-build#--build-arg-file
-      name: build-args-file
-      type: string
+      name: build-args-files
+      type: array
     - default: "false"
       description: Whether to enable privileged mode, should be used only with remote
         VMs
@@ -210,6 +210,8 @@ spec:
         workspace: netrc
     - name: build-container
       params:
+      - name: LOG_LEVEL
+        value: "debug"
       - name: IMAGE
         value: $(params.output-image)
       - name: DOCKERFILE
@@ -227,8 +229,6 @@ spec:
       - name: BUILD_ARGS
         value:
         - $(params.build-args[*])
-      - name: BUILD_ARGS_FILE
-        value: $(params.build-args-file)
       - name: PRIVILEGED_NESTED
         value: $(params.privileged-nested)
       - name: SOURCE_URL
@@ -249,6 +249,9 @@ spec:
         value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
       - name: CACHI2_ARTIFACT
         value: $(tasks.prefetch-dependencies.results.CACHI2_ARTIFACT)
+      - name: BUILD_ARGS_FILES
+        value:
+        - $(params.build-args-files[*])
       runAfter:
       - prefetch-dependencies
       taskRef:
