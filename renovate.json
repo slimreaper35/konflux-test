@@ -11,11 +11,6 @@
       "groupName": "Go",
       "matchManagers": ["gomod"],
       "schedule": "monthly"
-    },
-    {
-      "groupName": "Tekton",
-      "matchFileNames": [".tekton/**"],
-      "schedule": "monthly"
     }
   ]
 }
