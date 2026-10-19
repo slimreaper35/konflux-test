@@ -16,6 +16,10 @@ RUN go mod download
 
 COPY . .
 
+# RUN if [ ! -e /prefetch ] && [ -d /cachi2 ]; then ln -s /cachi2 /prefetch; fi
+
+RUN find /cachi2 -type f 2>/dev/null || true
+
 RUN go build
 
 LABEL name="name" \
