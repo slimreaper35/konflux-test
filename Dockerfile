@@ -14,6 +14,9 @@ COPY go.mod go.sum ./
 
 RUN go mod download
 
+RUN cp /cachi2/output/deps/generic/pnpm-11.9.0.tgz /app/pnpm-11.9.0.tgz
+RUN cp /prefetch/output/deps/generic/pnpm-11.9.0.tgz /app/pnpm-11.9.0.tgz
+
 COPY . .
 
 RUN go build
